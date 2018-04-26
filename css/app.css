@@ -107,3 +107,62 @@ h1 {
     float: right;
     cursor: pointer;
 }
+
+.timer {
+    display: inline-block;
+    margin-left: 5em;
+}
+
+
+.deck .card.show {
+    animation-name: animation_show;
+    animation-duration: 0.25s;
+}
+
+/* Standard syntax */
+@keyframes animation_show {
+    0% {
+        width: 125px;
+        height: 125px;
+    }
+    50% {
+        width: 150px;
+        height: 150px;
+    }
+    100% {
+        height: 125px;
+        width: 125px;
+    }
+}
+
+/* animation for match cards*/
+.deck .card.match {
+    animation-name: animation_match;
+    animation-duration: 0.25s;
+}
+
+/* Standard syntax */
+@keyframes animation_match {
+    0% {
+        width: 125px;
+        height: 125px;
+    }
+    50% {
+        width: 150px;
+        height: 150px;
+        transform: scale(1.5);
+    }
+    100% {
+        height: 125px;
+        width: 125px;
+    }
+}
+
+/* style for Swal */
+.swal-content li {
+    list-style: none;
+    display: inline-block;
+    font-size: 50px;
+    padding: 5px;
+    text-align: left;
+}

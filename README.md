@@ -1,20 +1,28 @@
 # Memory Game Project
 
-## Table of Contents
+## In HTML file adding the following:
+-  ><script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>" to make amazing alert.
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+## In CSS file :
+- adding timer class to display timer inline next with stars and restart.
+- adding animation on show and match cards, the animation from [w3schools](https://www.w3schools.com/cssref/css3_pr_animation.asp) and [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transform) .
+- adding some styles on Stars that shows on the alert .
 
-## Instructions
+## In JavaScrpit file important notations:
+- the script start from *runGame()* which has 2 even listener `restartGame` and `displayCard`:
+*`displayCard`: click only on the cards that filped down, and prevent more than two card to show, then check if all cards have been matched to display Congratulations.
+and it calls they functions
+- `addToListOfOpen`: insert card to list of open cards, if list has two cards, increment number of moves and check if they are same, if it's then lock them, if are not the same hide them and lost the star. then reset the list of open.
+- `displayCongratulations`: display Congratulations alert, stop timer, Given a choice to restart game or cancel.
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
-
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
-
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+-`stratTimer`: to start timer.
+-`stopTimer`: to stop timer by using `clearInterval` function.
+*`restartGame`: reset the game board, the timer, the star rating, and the number of moves.
+1. stop timer
+2. flip down all cards
+3. rest the number of moves
+4. rest the star rating
+5. shuffle cards
+6. add all card that shffled on the deck
+7. reset number cards that matches
+8. add Event Listener again on `displayCard`
