@@ -100,7 +100,7 @@ function addToListOfOpen(event) {
 			numOfMatched++;
 		}else{
 			setTimeout(remove_hide_Cards,500);// hide after 0.5sec if two card not matched
-			lostStar(event);
+			loseStar(event);
 		}
 	}
 }
@@ -133,15 +133,17 @@ function remove_hide_Cards() {
 function incrementMoveCounter() {
 	let counter = Number (moves.textContent);
 	moves.textContent = counter + 1;
+	return moves.textContent;
 }
 
-//lost star if two card not same
-function lostStar(event) {
-	if(counterStars != 0){
+//lose star if two card not same
+function loseStar(event) {
+	let counterMoves = Number (moves.textContent);
+	if((counterMoves - numOfMatched) % 10 === 0 && counterStars != 1){//decrease stars after balance between counterMoves and numOfMatched with 10
 		numOfStars.children[counterStars-1].firstElementChild.className = 'fa fa-star-o';
 		counterStars--;
 	}else{
-		// alert('You are Lost!')
+		// alert('You are Lose!')
 		// deck.removeEventListener('click', displayCard);
 	}
 }
